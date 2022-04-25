@@ -1,75 +1,206 @@
-  * {
-    margin:0;
-    padding:0;
-  }
-  body {
-    align-items: center;
-    background: #37474F;
-    font-family: monospace;
-    color: #cfd8dc;
-    justify-content: center;
-    font-size: 20px;
-  }
-  header {
-    height: 100px;
-    color:#333;
-    background-color:lightgray;
-    justify-content: center;
-  }
-  header h2 {
-    padding: 25px 0 0 30px;
-  }
-  nav {
-    height: 50px;
-    text-align: center;
-    background-color:darkseagreen;
-  }
-  
-  main {
-    margin-left:30px;
-  }
-  main h3 {
-    margin-top:35px;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  align-items: center;
+  background: lightblue;
+  font-family: monospace;
+  color: black;
+  justify-content: center;
+  font-size: 20px;
+}
+header {
+  height: 100px;
+  color: #333;
+  background-color: rgb(238, 226, 192);
+  text-align: center;
+  justify-content: center;
+}
+header h2 {
+  padding: 25px 0 0 30px;
+}
+nav {
+  height: 50px;
+  text-align: center;
+  background-color: lightgray;
+}
 
-  #welcome-message {
-      text-transform: capitalize;
-  }
-  
-  a {
-    color: azure;
-  }
-  
-  .field {
-    margin: 10px;
-  }
-  label, input {
-    display:block;
-  }
-  
-  input {
-    font-family: monospace;
-    font-size: 20px;
-    border: none;
-    background: #1c232636;
-    color: #CFD8DC;
-    padding: 7px;
-    border: #4c5a61 solid 2px;
-    width: 300px;
-  }
-  
-  button {
-    margin-top: 20px;
-  }
-  
-  .title {
-    margin: 10px 0px 20px 10px
-  }
-  
-  #error-message {
-    color: #E91E63;
-    display: block;
-    margin: 10px;
-    font-size: large;
-    max-width: fit-content;
-  }
+main {
+  margin-left: 30px;
+}
+main h3 {
+  margin-top: 35px;
+}
+
+#welcome-message {
+  text-transform: capitalize;
+}
+
+a {
+  color: black;
+}
+
+.field {
+  margin: 10px;
+}
+label,
+input {
+  display: block;
+}
+
+input {
+  font-family: monospace;
+  font-size: 20px;
+  border: none;
+  background: #1c232636;
+  color: #cfd8dc;
+  padding: 7px;
+  border: #4c5a61 solid 2px;
+  width: 300px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.title {
+  margin: 10px 0px 20px 10px;
+}
+
+#error-message {
+  color: #e91e63;
+  display: block;
+  margin: 10px;
+  font-size: large;
+  max-width: fit-content;
+}
+
+/* contact page */
+#contact {
+  /*background: no-repeat lightgrey url(images/cliff_rock.jpg);
+  background-size: 1500px;*/
+  background: no-repeat white url(images/cliff_rock.jpg);
+  background-size: 100% 400px;
+}
+.phone,
+.email {
+  padding-bottom: 15px;
+}
+span:first-child {
+  font-weight: bold;
+}
+legend {
+  font-size: 2em;
+  color: #4977d1;
+}
+label {
+  font-weight: bold;
+}
+.textbox label {
+  display: block;
+  margin: 15px 0 0 0;
+}
+.radios,
+.selectmenu,
+.commentbox,
+.button,
+.textbox {
+  margin: 20px;
+}
+.selectmenu select {
+  width: 200px;
+  text-align: center;
+}
+input {
+  width: 500px;
+}
+textarea {
+  display: block;
+  height: 200px;
+  width: 500px;
+}
+input[type="radio"] {
+  /* attribute selector */
+  width: 25px;
+}
+.btn {
+  margin-left: 370px;
+  width: 130px;
+  height: 50px;
+  /*background-color: #4977d1;*/
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+}
+.contactinfo {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+#field {
+  margin-left: 230px;
+  width: 200px;
+  font-size: 20px;
+  background-color: khaki;
+}
+#codes {
+  font-size: 20px;
+  background-color: dodgerblue;
+  display: inline-block;
+}
+
+/* inventory page */
+main #photos img {
+  margin: 0.75em;
+  border: 0.85em solid rgb(255, 255, 255);
+  margin-top: -2500px;
+}
+section#blogposts {
+  position: absolute;
+  right:5%;
+  left:5%;
+}
+main .post {
+  margin: 25px;
+  padding: 25px;
+  border: 2px solid rgba(83, 78, 58, 0.6);
+  border-radius: 0.5em;
+}
+main .post .color{
+  margin-left: 50px;
+}
+main .post .qty{
+  margin-left: 50px;
+}
+main .post .materials{
+  margin-left: 50px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.85em;
+}
+.post img {
+  width: 150px;
+  height: 150px;
+}
+#infobox {
+  width: 400px;
+  background-color: black;
+  opacity: 0.9;
+  color: white;
+  position: fixed;
+  top: 10%;
+  padding-left: 10px;
+  border-radius: 15px;
+  padding-right: 10px;
+}
+#infobox img{
+  height: 300px;
+}
+.homeimg {
+  height: 300px;
+}

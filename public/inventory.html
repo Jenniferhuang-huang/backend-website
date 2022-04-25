@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <title>My Inventory</title>
+    <!-- CSS (load bootstrap from a CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="container">
+<header>
+    <h2>Inventory Management</h2>
+</header>
+<nav class="navbar">
+    <ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    <li class="nav-item"><a class="nav-link" href="/contactus">ContactUs</a></li>
+  </ul>
+</nav>
+<div id="vueapp">
+  <main>
+    <h3>Your Inventory</h3>
+    <p>Welcome to your inventory page.</p>
+    <section id="blogposts">
+      <div class="post" v-for="post in posts">
+        <span class="url"
+          ><img
+            v-on:click="displayinfo(posts,post)"
+            v-bind:src="post.url"
+            class="img-thumbnail"
+        /></span>
+        <span class="brand">Brand: {{ post.name }}</span>
+        <span class="color">Color: {{ post.color }}</span>
+        <span class="materials">Materials: {{ post.materials }}</span>
+        <span class="qty">Qty: {{ post.qty }}</span>
+        <p>{{ post.message }}</p>
+      </div>
+      <div id="infobox" v-for="post in posts" v-if="post.showbox">
+        <p
+          class="closeBtn closeBtnB"
+          v-on:click="$emit('close', post.showbox = false)"
+        >
+          &#10006;
+        </p>
+        <h3>{{ post.name }}</h3>
+        <span class="url_2"
+          ><img
+            v-on:click="displayinfo(posts,post)"
+            v-bind:src="post.url_2"
+            class="img-thumbnail"
+        /></span>
+        <p>Retail price: {{ post.cost }} USD</p>
+        <button
+          class="closeBtn closeBtnB"
+          v-on:click="$emit('close', post.showbox = false)"
+        >
+          Close
+        </button>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="/./javascript/vue.js" type="text/javascript"></script>
+</body>
+</html>

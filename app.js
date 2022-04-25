@@ -1,4 +1,5 @@
 const express = require("express"),
+router = express.Router(),
   expSession = require("express-session"),
   app = express(),
   mongoose = require("mongoose"),
@@ -9,8 +10,8 @@ const express = require("express"),
   passportLocalMongoose = require("passport-local-mongoose"),
   User = require("./models/user"),
   rateLimit = require("express-rate-limit"),
-  xss = require('xss-clean'),
-  helmet = require('helmet');
+  xss = require("xss-clean"),
+  helmet = require("helmet");
 
 //Connecting database
 mongoose.connect("mongodb://localhost/auth_demo");
@@ -31,6 +32,7 @@ app.use(
 passport.serializeUser(User.serializeUser()); //session encoding
 passport.deserializeUser(User.deserializeUser()); //session decoding
 passport.use(new LocalStrategy(User.authenticate()));
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
@@ -60,8 +62,11 @@ app.use(helmet());
 app.get("/", (req, res) => {
   res.render("home");
 });
-app.get("/userprofile", (req, res) => {
-  res.render("userprofile");
+app.get("/inventory", (req, res) => {
+  res.render("inventory");
+});
+router.get("/inventory", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/inventory.html"));
 });
 //Auth Routes
 app.get("/login", (req, res) => {
@@ -70,13 +75,22 @@ app.get("/login", (req, res) => {
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/userprofile",
+    successRedirect: "/inventory.html",
     failureRedirect: "/login",
   }),
   function (req, res) {}
 );
 app.get("/register", (req, res) => {
   res.render("register");
+});
+// router.get("/register", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/public/register.html"));
+// });
+app.get("/contactus", (req, res) => {
+  res.render("contactus");
+});
+app.post("/contact", (req, res) => {
+  res.render("thankyou");
 });
 
 app.post("/register", (req, res) => {
